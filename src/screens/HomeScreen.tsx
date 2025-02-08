@@ -1,18 +1,25 @@
 import React from 'react';
-import {Button, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Alert, StatusBar} from 'react-native';
+import {Button, StyleSheet, Text} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 function HomeScreen() {
-  const navigation = useNavigation();
-  const goto = () => {
-    navigation.navigate('Profile');
-  };
   return (
-    <View style={{flex: 1, justifyContent: 'center'}}>
-      <Text style={{textAlign: 'center'}}>Home</Text>
-      <Button onPress={goto} title="Learn More"></Button>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.mainContainer}>
+        <StatusBar />
+        <Text style={{textAlign: 'center'}}>Home</Text>
+        <Button
+          onPress={() => Alert.alert('Simple Button pressed')}
+          title="Learn More"
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {flex: 1, justifyContent: 'center'},
+});
 
 export default HomeScreen;

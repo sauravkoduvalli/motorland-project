@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootStack() {
   return (
     <Stack.Navigator initialRouteName="BottomTab">
-      <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+      <Stack.Screen name="BottomTab" component={BottomTabNavigator} options={{headerShown: false}}/>
       {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
     </Stack.Navigator>
   );
